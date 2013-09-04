@@ -1,0 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stst: <http://summerschool2013.eswc-conferences.org/sparqlTester/> .
+@prefix str: <http://nlp2rdf.lod2.eu/schema/string/>.
+
+stst:select 	a stst:SparqTerm;
+				rdfs:label "SELECT";
+				stst:sparqlVersion "1";
+				stst:example "SELECT * WHERE{?s ?p ?o} LIMIT 1".
+				
+stst:ask		a stst:SparqTerm;
+				rdfs:label "ASK";
+				stst:sparqlVersion "1";
+				stst:example "ASK  { ?s ?p ?o }".
+				
+stst:construct 	a stst:SparqTerm;
+				rdfs:label "CONSTRUCT";
+				stst:sparqlVersion "1";
+				stst:example "CONSTRUCT   { ?s ?p ?o } WHERE { ?s ?p ?o } LIMIT 1".
