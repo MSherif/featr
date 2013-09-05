@@ -6,17 +6,27 @@
 @prefix void: <http://vocab.deri.ie/void#>.
 
 
-stst:select 	a stst:SparqTerm;
-				rdfs:label "SELECT";
+stst:select 	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature SELECT on SPARQL endpoints";
 				stst:sparqlVersion "1";
 				stst:example "SELECT * WHERE{?s ?p ?o} LIMIT 1".
 				
-stst:ask		a stst:SparqTerm;
-				rdfs:label "ASK";
+stst:ask	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature ASK on SPARQL endpoints";
 				stst:sparqlVersion "1";
 				stst:example "ASK  { ?s ?p ?o }".
 				
-stst:construct 	a stst:SparqTerm;
-				rdfs:label "CONSTRUCT";
+stst:construct 	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature CONSTRUCT on SPARQL endpoints";
 				stst:sparqlVersion "1";
 				stst:example "CONSTRUCT   { ?s ?p ?o } WHERE { ?s ?p ?o } LIMIT 1".
+				
+stst:count	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature COUNT on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT (count(*) AS ?count) WHERE {?s ?p ?o}".
+				
+stst:count	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature GROUP BY on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT ?s WHERE {?s ?p ?o} GROUP BY ?s LIMIT 1".
