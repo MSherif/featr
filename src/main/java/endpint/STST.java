@@ -12,7 +12,7 @@ import com.hp.hpl.jena.rdf.model.ResourceFactory;
  *
  */
 public class STST {
-	public static final String stst = "http://summerschool2013.eswc-conferences.org/sparqlTester/";
+	public static final String stst = "http://summerschool2013.eswc-conferences.org/featr/";
 	private static Property property(String name) {
 		Property result = ResourceFactory.createProperty(stst + name);
 		return result;
