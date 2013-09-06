@@ -6,8 +6,8 @@
 @prefix void: <http://vocab.deri.ie/void#>.
 
 
-stst:select 	a stst:SparqlTerm;
-				rdfs:label "SPARQL Query to to check feature SELECT on SPARQL endpoints";
+stst:select_limit 	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature SELECT and LIMIT on SPARQL endpoints";
 				stst:sparqlVersion "1";
 				stst:example "SELECT * WHERE{?s ?p ?o} LIMIT 1".
 				
@@ -26,7 +26,38 @@ stst:count	a stst:SparqlTerm;
 				stst:sparqlVersion "1.1";
 				stst:example "SELECT (count(*) AS ?count) WHERE {?s ?p ?o}".
 				
-stst:count	a stst:SparqlTerm;
+stst:group	a stst:SparqlTerm;
 				rdfs:label "SPARQL Query to to check feature GROUP BY on SPARQL endpoints";
 				stst:sparqlVersion "1.1";
 				stst:example "SELECT ?s WHERE {?s ?p ?o} GROUP BY ?s LIMIT 1".
+
+stst:not_exists	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature FILTER NOT EXISTS on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT ?s ?p ?o WHERE { ?s ?p ?o . FILTER NOT EXISTS { ?s ?p ?s } } LIMIT 2".
+
+stst:create	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature of calculating new variables on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT ?s ?p (?p*2 AS ?NewO) WHERE { ?s ?p ?NewO} LIMIT 2".
+				
+stst:minus	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature MINUS on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT * { ?s ?p ?o MINUS { } } LIMIT 2".
+
+stst:property_paths	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature Property Paths on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT ?s ?p WHERE {?s rdf:any|rdf:any ?p} LIMIT 2".
+
+stst:language_filter	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature Language FILTER on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT ?s ?p ?o WHERE { ?s ?p ?o. FILTER langMatches( lang(?o), "en") } LIMIT 2".
+
+stst:regex	a stst:SparqlTerm;
+				rdfs:label "SPARQL Query to to check feature Regular Expression FILTER on SPARQL endpoints";
+				stst:sparqlVersion "1.1";
+				stst:example "SELECT ?s ?p ?o WHERE {?s ?p ?o FILTER regex (?o,'^a', 'i') } LIMIT 1".
+				
